@@ -1,15 +1,14 @@
 namespace RoleplayGame
 {
-    public class Wizard
+    public class Wizard:Character
     {
+        public Wizard(string name)
+            : base (name)
+        {
+        }
         private int health = 100;
 
-        public Wizard(string name)
-        {
-            this.Name = name;
-        }
-
-        public string Name { get; set; }
+        //public string Name { get; set; }
 
         public SpellsBook SpellsBook { get; set; }
 
@@ -43,7 +42,7 @@ namespace RoleplayGame
             }
         }
 
-        public void ReceiveAttack(int power)
+        public override void ReceiveAttack(int power)
         {
             if (this.DefenseValue < power)
             {
@@ -51,9 +50,10 @@ namespace RoleplayGame
             }
         }
 
-        public void Cure()
+        public override void Cure()
         {
             this.Health = 100;
         }
+        
     }
 }
